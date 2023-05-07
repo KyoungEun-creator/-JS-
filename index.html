@@ -8,11 +8,15 @@
     <title>Momentum App</title>
 </head>
 <body>
-    <div id="login-form">
-        <input type="text" placeholder="What is your name?">
+    <form id="login-form"> <!-- input의 유효성 검사를 작동시키기 위해서는 input아 form 안에 있어야 한다 -->
+        <input 
+        required        
+        maxlength="15"
+        type="text" placeholder="What is your name?">
         <button>Log In</button>
-    </div>  
+    </form>  
 
+    <a href="https://github.com/KyoungEun-creator">Go to the Github</a>
 
     <script src="main.js"></script>
 </body>
