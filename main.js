@@ -1,24 +1,31 @@
 const loginForm = document.querySelector('#login-form');
 const loginInput = document.querySelector('#login-form input');
 const loginButton = document.querySelector('#login-form button');
-const link = document.querySelector('a');
+const greeting = document.querySelector('#greeting');
+
+const HIDDEN_CLASSNAME = "hidden";          //string만 포함된 변수는 대문자로 쓰는 관습
+const USERNAME_KEY = "username";
 
 function onLoginSubmit(event){
-    // const username=loginInput.value;
-    event.preventDefault(); // form의 기본동작(submit 하면 브라우저 새로고침 되는 것)을 실행하지 못하게 하기
-    // console.log(username);
-    // if (username === '') {
-    //     alert('Please Write Your Name');
-    // } else if (username.length>15) {
-    //     alert('Your name is Too Long');
-    // }
+    event.preventDefault(); 
+    loginForm.classList.add(HIDDEN_CLASSNAME);  
+    const username = loginInput.value;
+    localStorage.setItem(USERNAME_KEY, username);
+    paintGreetings(username);
+}
+function paintGreetings(username){
+    greeting.innerText = `Hello ${username}!`;
+    greeting.classList.remove(HIDDEN_CLASSNAME); 
 }
 
-function handleLinkClick(event) {
-    event.preventDefault();
-    alert('clicked!');
+const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+if (savedUsername == null) {
+    //show the form
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener('submit', onLoginSubmit);
+} else {
+    //show the greeting
+    paintGreetings(savedUsername);
 }
 
-
-loginForm.addEventListener('submit', onLoginSubmit);
-link.addEventListener('click', handleLinkClick);
