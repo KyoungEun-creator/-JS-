@@ -1,7 +1,12 @@
+body {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .hidden {
     display: none;
 }
-
 img {
     position:absolute;
     width:100%;
@@ -12,4 +17,32 @@ img {
     bottom:0px;
     z-index: -1;
     opacity:50%;
-    }
+}
+
+#login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+button {
+    background: transparent;
+    border: none;
+}
+#clock {
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#todo-form input {
+    width: 200px;
+    height: 25px;
+}
+
+#quote {
+    font-style: italic;
+}
+
